@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  "latest":
+    image: 'threevl/wp-php-fpm:latest'
+    build:
+      dockerfile: 'Dockerfile'
+      context: './builds/latest'
+  "latest-xdebug":
+    image: 'threevl/wp-php-fpm:latest-dev'
+    build:
+      dockerfile: 'Dockerfile'
+      context: './builds/latest-dev'
+  "7.1.7":
+    image: 'threevl/wp-php-fpm:7.1.7'
+    build:
+      dockerfile: 'Dockerfile'
+      context: './builds/latest'
+  "7.1.7-xdebug":
+    image: 'threevl/wp-php-fpm:7.1.7-dev'
+    build:
+      dockerfile: 'Dockerfile'
+      context: './builds/latest-dev'
