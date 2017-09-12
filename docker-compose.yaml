@@ -1,22 +1,32 @@
 version: '3.1'
 services:
-  "latest":
-    image: 'threevl/wp-php-fpm:latest'
+  "wp-php-fpm-composer":
+    image: 'threevl/wp-php-fpm-composer:latest'
     build:
       dockerfile: 'Dockerfile'
-      context: './builds/latest'
-  "latest-xdebug":
-    image: 'threevl/wp-php-fpm:latest-dev'
+      context: './builds/wp-php-fpm-composer'
+      args: 
+        PHP_VERSION: fpm-alpine
+  "wp-php-fpm-composer-dev":
+    image: 'threevl/wp-php-fpm-composer:latest'
     build:
       dockerfile: 'Dockerfile'
-      context: './builds/latest-dev'
-  "7.1.7":
-    image: 'threevl/wp-php-fpm:7.1.7'
+      context: './builds/wp-php-fpm-composer'
+      args:
+        DEV: 1
+        PHP_VERSION: fpm-alpine
+  "wp-php-fpm-composer-1.0":
+    image: 'threevl/wp-php-fpm-composer:1.0'
     build:
       dockerfile: 'Dockerfile'
-      context: './builds/latest'
-  "7.1.7-xdebug":
-    image: 'threevl/wp-php-fpm:7.1.7-dev'
+      context: './builds/wp-php-fpm-composer'
+      args: 
+        PHP_VERSION: 7.1.9-fpm-alpine
+  "wp-php-fpm-composer-1.0-dev":
+    image: 'threevl/wp-php-fpm-composer:1.0-dev'
     build:
       dockerfile: 'Dockerfile'
-      context: './builds/latest-dev'
+      context: './builds/wp-php-fpm-composer'
+      args:
+        DEV: 1
+        PHP_VERSION: 7.1.9-fpm-alpine
